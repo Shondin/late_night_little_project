@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jquery.pep custom functions</title>
+
+    <!-- Load local jQuery.  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+    <!-- Load local lib and tests. -->
+    <script src="../src/jquery.pep.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var threshold = 30;
+
+        $('.pep').pep({
+          initiate: function(ev, obj) {},
+          start: function(ev, obj)    {},
+          drag: function(ev, obj)     {},
+          stop: function(ev, obj)     {},
+          rest: function(ev, obj)     {}
+        });
+      });  
+    </script>
+    <style type="text/css">
+      .pep{ 
+        width: 200px; 
+        height: 200px; 
+        color: white; 
+        opacity: 0.8; 
+        background: blue;   
+        position: absolute; 
+        top: 0; 
+        left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="timeline">
+        <div class="pep"></div>
+    </div>
+  </body>
+</html>
