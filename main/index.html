@@ -13,6 +13,8 @@
         var threshold = 30;
 
         $('.pep').pep({
+          axis: 'x',
+          constrainTo: [0, 3000, 0, -3000],
           initiate: function(ev, obj) {},
           start: function(ev, obj)    {},
           drag: function(ev, obj)     {},
@@ -22,27 +24,33 @@
       });  
     </script>
     <style type="text/css">
-
+       body{
+            overflow:hidden;
+       }
       .pep{ 
-        width: 6000px;
-        height: 100px;
-        color: white; 
-        opacity: 0.8; 
-        background: rgba(0, 0, 0, 0.44);
-        position: absolute; 
-        top: 0; 
-        left: 0px;
+            width: 6000px;
+            height: 100px;
+            color: white;
+            opacity: 0.8;
+            background: rgba(0, 0, 0, 0.44);
+            position: absolute;
+            top: 0;
+            left: 0px;
       }
       #indicator{
-        width:6000px;
-        background-image: -webkit-repeating-linear-gradient(to right,#f6ba52,#f6ba52 10px,#ffd180 10px,#ffd180 20px);
+            position: absolute;
+            bottom:0;
+            margin-bottom: -15px;
+            width:6000px;
+            background:url(./img/line_horz.gif) bottom left repeat; height:15px; width:6000px;
       }
     </style>
   </head>
   <body>
     <div class="timeline">
         <div class="pep">
-        <div id="indicator"></div>
+        <div id="indicator">
+        </div>
         </div>
     </div>
   </body>
