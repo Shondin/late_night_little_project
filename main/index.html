@@ -10,17 +10,25 @@
 
     <script type="text/javascript">
       $(document).ready(function(){
-        var threshold = 30;
+        var $timeline = $('#timeline');
+        var $matrix = $('#matrix');
+        var timeline_width = $timeline.outerWidth();
+        var minutes_img_width = 3;
+        var minutes = timeline_width/minutes_img_width;
 
+        for (var i =0; i<=minutes; i++){
+            $matrix.append("<div class='col' style='width:"+minutes_img_width+"px'></div>")
+        }
         $('.pep').pep({
           axis: 'x',
-          constrainTo: [0, 3000, 0, -3000],
+          constrainTo: [0, 0, 0, -3000],
           initiate: function(ev, obj) {},
           start: function(ev, obj)    {},
           drag: function(ev, obj)     {},
           stop: function(ev, obj)     {},
           rest: function(ev, obj)     {}
         });
+
       });  
     </script>
     <style type="text/css">
@@ -36,21 +44,50 @@
             position: absolute;
             top: 0;
             left: 0px;
+            cursor:pointer;
       }
+
       #indicator{
+            position:absolute;
+            top:0;
+            background-color: white;
+            width:100px;
+            height:100px;
+            left:50%;
+            margin-left: 75px;
+      }
+
+      .col {
+        display: inline-block;
+        border-left: 1px black solid;
+        height: 100%;
+      }
+
+      #matrix{
+            display: table;
+            width:6000px;
+            height: 100%;
+      }
+
+      #intervals{
             position: absolute;
             bottom:0;
             margin-bottom: -15px;
             width:6000px;
-            background:url(./img/line_horz.gif) bottom left repeat; height:15px; width:6000px;
+            background:url(./img/line_horz.gif) bottom left repeat;
+            height:15px;
+            width:6000px;
       }
     </style>
   </head>
   <body>
-    <div class="timeline">
+    <div id="timeline">
+        <div id="indicator"></div>
+        <div id="line"></div>
         <div class="pep">
-        <div id="indicator">
-        </div>
+            <div id="matrix">
+
+            </div>
         </div>
     </div>
   </body>
