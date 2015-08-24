@@ -35,7 +35,7 @@
        body{
             overflow:hidden;
        }
-      .pep{ 
+      .pep{
             width: 6000px;
             height: 100px;
             color: white;
@@ -44,21 +44,62 @@
             position: absolute;
             top: 0;
             left: 0px;
-            cursor:pointer;
       }
 
       #indicator{
             position: absolute;
             top: 0;
-            background-color: white;
-            width: 100px;
-            height: 20px;
             left: 50%;
+            height: 100px;
+            width: 100px;
+            margin-top: -50px;
             margin-left: -50px;
-            border: 1px solid;
-            border-color: transparent black black black;
-            border-radius: 100px;
+            background: rgb(209,39,56);
+            -webkit-transform: rotate(45deg);
       }
+
+      .triangle {
+            height: 100px;
+            width: 100px;
+            position:relative;
+            background: rgb(209,39,56);
+            background: -moz-linear-gradient(top,  rgba(209,39,56,1) 0%, rgba(122,23,38,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(209,39,56,1)), color-stop(100%,rgba(122,23,38,1))); /* Chrome,Safari4+ */
+            -webkit-linear-gradient(top,  rgba(209,39,56,1) 0%,rgba(122,23,38,1) 100%); /*
+            -o-linear-gradient(top,  rgba(209,39,56,1) 0%,rgba(122,23,38,1) 100%); /* Opera 11.10+ */
+            -ms-linear-gradient(top,  rgba(209,39,56,1) 0%,rgba(122,23,38,1) 100%); /* IE10+ */
+            linear-gradient(top,  rgba(209,39,56,1) 0%,rgba(122,23,38,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d12738', endColorstr='#7a1726',GradientType=0 ); /* IE6-8 */
+      }
+
+      .triangle:after {
+            -moz-transform: rotate(135deg);
+            -ms-transform:rotate(135deg); /* Internet Explorer */
+            -webkit-transform:rotate(135deg); /* Safari and Chrome */
+            -o-transform:rotate(135deg); /* Opera */
+            background: none repeat scroll 0 0 white;
+            content: "";
+            height: 159px;
+            left: 0;
+            margin-left: -50px;
+            position: absolute;
+            top: 12px;
+            width: 120px;
+      }
+
+     .triangle:before {
+            -moz-transform: rotate(35deg);
+            -ms-transform:rotate(35deg); /* Internet Explorer */
+            -webkit-transform:rotate(35deg); /* Safari and Chrome */
+            -o-transform:rotate(35deg); /* Opera */
+            background: none repeat scroll 0 0 white;
+            content: "";
+            height: 159px;
+            left: 21px;
+            position: absolute;
+            top: 12px;
+            width: 120px;
+     }
 
       .col:before {
             position: absolute;
@@ -95,10 +136,10 @@
   <body>
     <div id="timeline">
         <div id="indicator"></div>
+                <div class="triangle"></div>
         <div id="line"></div>
         <div class="pep">
             <div id="matrix">
-
             </div>
         </div>
     </div>
