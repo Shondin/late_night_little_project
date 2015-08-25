@@ -13,21 +13,24 @@
         var $timeline = $('#timeline');
         var $matrix = $('#matrix');
         var timeline_width = $timeline.outerWidth();
-        var minutes_img_width = 3;
+        var minutes_img_width = 10;
         var minutes = timeline_width/minutes_img_width;
 
         for (var i =0; i<=minutes; i++){
             $matrix.append("<div class='col' style='width:"+minutes_img_width+"px'></div>")
         }
+
         $('.pep').pep({
-          axis: 'x',
-          constrainTo: [0, 0, 0, -3000],
-          initiate: function(ev, obj) {},
-          start: function(ev, obj)    {},
-          drag: function(ev, obj)     {},
-          stop: function(ev, obj)     {},
-          rest: function(ev, obj)     {}
+              axis: 'x',
+              constrainTo: [0, 3000, 0, -3000],
+              initiate: function(ev, obj) {},
+              start: function(ev, obj)    {},
+              drag: function(ev, obj)     {},
+              stop: function(ev, obj)     {},
+              rest: function(ev, obj)     {}
         });
+
+
 
       });  
     </script>
@@ -35,9 +38,10 @@
        body{
             overflow:hidden;
        }
+
       .pep{
             width: 6000px;
-            height: 100px;
+            height: 200px;
             color: white;
             opacity: 0.8;
             background: rgba(0, 0, 0, 0.44);
@@ -45,16 +49,26 @@
             top: 0;
             left: 0px;
       }
-
+      #line{
+            position:absolute;
+            width:4px;
+            height:100%;
+            cursor: pointer;
+            background: rgb(60,120,255);
+            background: -moz-linear-gradient(top,  rgba(60,120,255,1) 0%, rgba(10,80,180,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(60,120,255,1)), color-stop(100%,rgba(10,80,180,1))); /* Chrome,Safari4+ */
+      }
       #indicator{
             position: absolute;
             top: 0;
             left: 50%;
-            height: 100px;
-            width: 100px;
+            height: 60px;
+            width: 60px;
             margin-top: -50px;
             margin-left: -50px;
-            background: rgb(209,39,56);
+            background: rgb(60,120,255);
+            background: -moz-linear-gradient(top,  rgba(60,120,255,1) 0%, rgba(10,80,180,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(60,120,255,1)), color-stop(100%,rgba(10,80,180,1))); /* Chrome,Safari4+ */
             -webkit-transform: rotate(45deg);
       }
 
@@ -87,7 +101,7 @@
             width: 120px;
       }
 
-     .triangle:before {
+      .triangle:before {
             -moz-transform: rotate(35deg);
             -ms-transform:rotate(35deg); /* Internet Explorer */
             -webkit-transform:rotate(35deg); /* Safari and Chrome */
@@ -99,7 +113,7 @@
             position: absolute;
             top: 12px;
             width: 120px;
-     }
+      }
 
       .col:before {
             position: absolute;
@@ -112,8 +126,8 @@
       }
 
       .col {
-        display: inline-block;
-        height: 100%;
+            display: inline-block;
+            height: 100%;
       }
 
       #matrix{
@@ -122,21 +136,12 @@
             height: 100%;
       }
 
-      #intervals{
-            position: absolute;
-            bottom:0;
-            margin-bottom: -15px;
-            width:6000px;
-            background:url(./img/line_horz.gif) bottom left repeat;
-            height:15px;
-            width:6000px;
-      }
+
     </style>
   </head>
   <body>
     <div id="timeline">
         <div id="indicator"></div>
-                <div class="triangle"></div>
         <div id="line"></div>
         <div class="pep">
             <div id="matrix">
