@@ -16,9 +16,9 @@
         var $pep = $('.pep');
         var $matrix = $('#matrix');
 
-        var timestamp = Date.parse(new Date());
-        var timeline_width = $timeline.outerWidth();
-        var pep_width = $pep.outerWidth();
+        var now = new Date()
+        var timestamp = Date.parse();
+        var pep_width = $pep.outerWidth;
         var minutes_img_width = 10;
         var minutes = pep_width/minutes_img_width;
 
@@ -45,22 +45,29 @@
               stop: function(ev, obj)     {},
               rest: function(ev, obj)     {}
         });
+        var template = "<div class='card'>" +
+                        "<div class='img'></div>"
+                        "<div class='info'></div>"
+                "</div>"
+        var addMovieCard = function(timestamp){
+            $('#'+timestamp).append(template)
+        }
 
-        var addMovieCard = function(timestamp){}
-
+        addMovieCard("1440618788000")
       });
     </script>
 
     <style type="text/css">
        body{
             overflow:hidden;
+            background-color:#111;
        }
       .pep{
             width: 6000px;
             height: 200px;
             color: white;
             opacity: 0.8;
-{#            background: rgba(0, 0, 0, 0.44);#}
+            background: #1c2920;
             position: absolute;
             top: 0;
             left: 0px;
@@ -77,9 +84,9 @@
             width:4px;
             height:100%;
             cursor: pointer;
-{#            background: rgb(60,120,255);#}
-{#            background: -moz-linear-gradient(top,  rgba(60,120,255,1) 0%, rgba(10,80,180,1) 100%); /* FF3.6+ */#}
-{#            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(60,120,255,1)), color-stop(100%,rgba(10,80,180,1))); /* Chrome,Safari4+ */#}
+            background: rgb(60,120,255);
+            background: -moz-linear-gradient(top,  rgba(60,120,255,1) 0%, rgba(10,80,180,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(60,120,255,1)), color-stop(100%,rgba(10,80,180,1))); /* Chrome,Safari4+ */
       }
 
       #indicator{
@@ -91,17 +98,17 @@
       }
 
       #triangle{
-{#            background: rgb(60,120,255);#}
-{#            background: -moz-linear-gradient(top,  rgba(60,120,255,1) 0%, rgba(10,80,180,1) 100%); /* FF3.6+ */#}
-{#            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(60,120,255,1)), color-stop(100%,rgba(10,80,180,1))); /* Chrome,Safari4+ */#}
+            background: rgb(60,120,255);
+            background: -moz-linear-gradient(top,  rgba(60,120,255,1) 0%, rgba(10,80,180,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(60,120,255,1)), color-stop(100%,rgba(10,80,180,1))); /* Chrome,Safari4+ */
             -webkit-transform: rotate(45deg);
       }
 
       .col:before {
             position: absolute;
-            border-left: 1px black solid;
+            border-left: 1px white solid;
             content: '';
-            height: 3px;
+            height: 5px;
             width: 1px;
             bottom: 0;
             margin-bottom: -4px;
@@ -117,7 +124,6 @@
             width:6000px;
             height: 100%;
       }
-
 
     </style>
   </head>
