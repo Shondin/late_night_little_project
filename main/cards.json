@@ -2,13 +2,13 @@
   {
     "id": 1,
     "name": "Sony Xperia Z3",
-    "time": 899,
+    "time": 998902800000,
     "info": {
       "genre": "Apple",
       "director": 16,
       "runtime": 109
     },
-   "image":  "/images/sony-xperia-z3.jpg",
+   "image":  "/images/sony-xperia-z3.jpg"
 
   },
   {
@@ -17,10 +17,10 @@
     "time": 899,
     "info": {
       "genre": "Apple",
-      "director": 16,
+      "director": "Tony Scott",
       "runtime": 109
     },
-    "image":  "/images/sony-xperia-z3.jpg",
+    "image":  "/images/sony-xperia-z3.jpg"
 
   }
 ]

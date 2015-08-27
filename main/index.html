@@ -12,25 +12,29 @@
 
     <script type="text/javascript">
       $(document).ready(function(){
-        var $timeline = $('#timeline');
         var $pep = $('.pep');
         var $matrix = $('#matrix');
 
-        var now = new Date()
-        var timestamp = Date.parse();
-        var pep_width = $pep.outerWidth;
+        var now = new Date();
+        var pep_width = $pep.outerWidth();
         var minutes_img_width = 10;
-        var minutes = pep_width/minutes_img_width;
-
-        var milk = minutes*60000; // minutes to milliseconds
-        var start_time = timestamp - milk;
+        var minutes = (pep_width/minutes_img_width)/2;
+        var start_time = parseInt((now.getHours() - minutes/60));
 
         //cur time
+        var min;
+        var hour = start_time;
         for (var i =0; i<=minutes; i++){
             var id ="";
 
+            if(i>60){
+                min = i%60;
+            }else{
+                min = i;
+            }
+
             if(i%5==0){
-                id="id='"+parseInt(start_time+(i*60000))+"'";
+                id="id='"+parseInt(hour+i/60)+"_"+min+"'";
             }
 
             $matrix.append("<div "+id+" class='col' style='width:"+minutes_img_width+"px'></div>");
@@ -45,15 +49,30 @@
               stop: function(ev, obj)     {},
               rest: function(ev, obj)     {}
         });
-        var template = "<div class='card'>" +
-                        "<div class='img'></div>"
-                        "<div class='info'></div>"
-                "</div>"
-        var addMovieCard = function(timestamp){
-            $('#'+timestamp).append(template)
+
+        var getCard = function(data){
+            return "<div class='card'>" +
+                        "<div class='img'>+data.image+</div>"+
+                        "<div class='info'>"+data.info.director+"</div>"+
+                        "</div>";
+        }
+        var renderCard = function(timestamp, card) {
+            var time = new Date(parseInt(timestamp));
+            $('#'+time.getHours()+"_"+ time.getMinutes()).append(card);
         }
 
-        addMovieCard("1440618788000")
+
+        function renderCards(data){
+              var card = "";
+              data.forEach(function (item) {
+                   card = getCard(item);
+                   renderCard(item.time, card);
+              });
+        }
+        //renderCard("998902800000");
+        $.getJSON( "cards.json", function( data ) {
+            renderCards(data)
+        });
       });
     </script>
 
