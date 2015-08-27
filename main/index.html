@@ -11,7 +11,7 @@
     <script src="./js/lib/handlebars.min.js"></script>
 
     <script type="text/javascript">
-      $(document).ready(function(){
+      $(function(){
         var $pep = $('.pep');
         var $matrix = $('#matrix');
 
@@ -22,22 +22,30 @@
         var start_time = parseInt((now.getHours() - minutes/60));
 
         //cur time
+        var id; var clas;
+        var time_html;
         var min;
-        var hour = start_time;
+        var hour ;
+          minutes *= 2;
         for (var i =0; i<=minutes; i++){
-            var id ="";
-
+            id ="";
+            clas ="";
+            time_html = ""
             if(i>60){
                 min = i%60;
             }else{
                 min = i;
             }
 
+            hour = parseInt(start_time+i/60);
             if(i%5==0){
                 id="id='"+parseInt(hour+i/60)+"_"+min+"'";
+                time_html = "<span class='time'>" + hour+":"+min+"</span>";
+                clas = clas+" l"
             }
 
-            $matrix.append("<div "+id+" class='col' style='width:"+minutes_img_width+"px'></div>");
+            $matrix.append("<div "+id+" class='col"+clas+"' style='width:"+minutes_img_width+"px'></div>"+time_html);
+
         }
 
         $('.pep').pep({
@@ -52,15 +60,15 @@
 
         var getCard = function(data){
             return "<div class='card'>" +
-                        "<div class='img'>+data.image+</div>"+
+                        "<div class='img'><img src="+data.image+"></div>"+
                         "<div class='info'>"+data.info.director+"</div>"+
                         "</div>";
         }
+
         var renderCard = function(timestamp, card) {
             var time = new Date(parseInt(timestamp));
             $('#'+time.getHours()+"_"+ time.getMinutes()).append(card);
         }
-
 
         function renderCards(data){
               var card = "";
@@ -123,23 +131,32 @@
             -webkit-transform: rotate(45deg);
       }
 
-      .col:before {
+      span.time {
+           position: absolute;
+           bottom: 0;
+           margin-bottom: -45px;
+           margin-left: -23px;
+           font-size: 12px;
+      }
+      .col:after {
             position: absolute;
             border-left: 1px white solid;
             content: '';
-            height: 5px;
+            height: 7px;
             width: 1px;
             bottom: 0;
-            margin-bottom: -4px;
+            margin-bottom: -20px;
       }
-
+        .col.l:after{
+            height:13px;
+            margin-bottom: -22px;
+        }
       .col {
             display: inline-block;
             height: 100%;
       }
 
       #matrix{
-            display: table;
             width:6000px;
             height: 100%;
       }
