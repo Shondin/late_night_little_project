@@ -2,25 +2,25 @@
   {
     "id": 1,
     "name": "Movie",
-    "time": 1440705600000,
+    "time": 998982300000,
     "info": {
       "genre": "Apple",
       "director": 16,
       "runtime": 109
     },
-   "image":  "/images/sony-xperia-z3.jpg"
+   "image":  "/img/test.png"
 
   },
   {
     "id": 2,
     "name": "Movie 1",
-    "time": 1440702000000,
+    "time": 998985600000,
     "info": {
       "genre": "Apple",
+      "country": "сша",
       "director": "Tony Scott",
       "runtime": 109
     },
-    "image":  "/images/sony-xperia-z3.jpg"
-
+    "image":  "/img/uragan_tornado.jpg"
   }
 ]

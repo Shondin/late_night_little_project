@@ -1,0 +1,88 @@
+body {
+    overflow: hidden;
+    background-color: #111;
+}
+
+.pep {
+    width: 6000px;
+    height: 200px;
+    color: white;
+    opacity: 0.8;
+    background: #1c2920;
+    position: absolute;
+    top: 0;
+    left: 0px;
+}
+
+#indicator {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+#line {
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    cursor: pointer;
+    background: rgb(60, 120, 255);
+    background: -moz-linear-gradient(top, rgba(60, 120, 255, 1) 0%, rgba(10, 80, 180, 1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(60, 120, 255, 1)), color-stop(100%, rgba(10, 80, 180, 1))); /* Chrome,Safari4+ */
+}
+
+#indicator {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+
+#triangle {
+    background: rgb(60, 120, 255);
+    background: -moz-linear-gradient(top, rgba(60, 120, 255, 1) 0%, rgba(10, 80, 180, 1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(60, 120, 255, 1)), color-stop(100%, rgba(10, 80, 180, 1))); /* Chrome,Safari4+ */
+    -webkit-transform: rotate(45deg);
+}
+
+span.time {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -45px;
+    margin-left: -23px;
+    font-size: 12px;
+}
+.card{
+    background-color: #111;
+    padding: 10px;
+    position: absolute;
+}
+.col:after {
+    position: absolute;
+    border-left: 1px white solid;
+    content: '';
+    height: 7px;
+    width: 1px;
+    bottom: 0;
+    margin-bottom: -20px;
+}
+.col.has-card{
+    border-left:1px grey solid;
+}
+.col.l:after {
+    height: 13px;
+    margin-bottom: -22px;
+}
+
+.col {
+    display: inline-block;
+    height: 100%;
+}
+
+#matrix {
+    width: 6000px;
+    height: 100%;
+}
+

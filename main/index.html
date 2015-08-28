@@ -8,160 +8,8 @@
 
     <!-- Load local lib and tests. -->
     <script src="./js/lib/jquery.pep.js"></script>
-    <script src="./js/lib/handlebars.min.js"></script>
-
-    <script type="text/javascript">
-      $(function(){
-        var $pep = $('.pep');
-        var $matrix = $('#matrix');
-
-        var now = new Date();
-        var pep_width = $pep.outerWidth();
-        var minutes_img_width = 10;
-        var minutes = (pep_width/minutes_img_width)/2;
-        var start_time = parseInt((now.getHours() - minutes/60));
-
-        //cur time
-        var id; var clas;
-        var time_html;
-        var min;
-        var hour ;
-          minutes *= 2;
-        for (var i =0; i<=minutes; i++){
-            id ="";
-            clas ="";
-            time_html = ""
-            if(i>60){
-                min = i%60;
-            }else{
-                min = i;
-            }
-
-            hour = parseInt(start_time+i/60);
-            if(i%5==0){
-                id="id='"+parseInt(hour+i/60)+"_"+min+"'";
-                time_html = "<span class='time'>" + hour+":"+min+"</span>";
-                clas = clas+" l"
-            }
-
-            $matrix.append("<div "+id+" class='col"+clas+"' style='width:"+minutes_img_width+"px'></div>"+time_html);
-
-        }
-
-        $('.pep').pep({
-              axis: 'x',
-              constrainTo: [0, 3000, 0, -3000],
-              initiate: function(ev, obj) {},
-              start: function(ev, obj)    {},
-              drag: function(ev, obj)     {},
-              stop: function(ev, obj)     {},
-              rest: function(ev, obj)     {}
-        });
-
-        var getCard = function(data){
-            return "<div class='card'>" +
-                        "<div class='img'><img src="+data.image+"></div>"+
-                        "<div class='info'>"+data.info.director+"</div>"+
-                        "</div>";
-        }
-
-        var renderCard = function(timestamp, card) {
-            var time = new Date(parseInt(timestamp));
-            $('#'+time.getHours()+"_"+ time.getMinutes()).append(card);
-        }
-
-        function renderCards(data){
-              var card = "";
-              data.forEach(function (item) {
-                   card = getCard(item);
-                   renderCard(item.time, card);
-              });
-        }
-        //renderCard("998902800000");
-        $.getJSON( "cards.json", function( data ) {
-            renderCards(data)
-        });
-      });
-    </script>
-
-    <style type="text/css">
-       body{
-            overflow:hidden;
-            background-color:#111;
-       }
-      .pep{
-            width: 6000px;
-            height: 200px;
-            color: white;
-            opacity: 0.8;
-            background: #1c2920;
-            position: absolute;
-            top: 0;
-            left: 0px;
-      }
-      #indicator{
-            position: absolute;
-            top: 0;
-            left: 50%;
-            height: 60px;
-            width: 60px;
-      }
-      #line{
-            position:absolute;
-            width:4px;
-            height:100%;
-            cursor: pointer;
-            background: rgb(60,120,255);
-            background: -moz-linear-gradient(top,  rgba(60,120,255,1) 0%, rgba(10,80,180,1) 100%); /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(60,120,255,1)), color-stop(100%,rgba(10,80,180,1))); /* Chrome,Safari4+ */
-      }
-
-      #indicator{
-            position: absolute;
-            top: 0;
-            left: 50%;
-            margin-top: -50px;
-            margin-left: -50px;
-      }
-
-      #triangle{
-            background: rgb(60,120,255);
-            background: -moz-linear-gradient(top,  rgba(60,120,255,1) 0%, rgba(10,80,180,1) 100%); /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(60,120,255,1)), color-stop(100%,rgba(10,80,180,1))); /* Chrome,Safari4+ */
-            -webkit-transform: rotate(45deg);
-      }
-
-      span.time {
-           position: absolute;
-           bottom: 0;
-           margin-bottom: -45px;
-           margin-left: -23px;
-           font-size: 12px;
-      }
-      .col:after {
-            position: absolute;
-            border-left: 1px white solid;
-            content: '';
-            height: 7px;
-            width: 1px;
-            bottom: 0;
-            margin-bottom: -20px;
-      }
-        .col.l:after{
-            height:13px;
-            margin-bottom: -22px;
-        }
-      .col {
-            display: inline-block;
-            height: 100%;
-      }
-
-      #matrix{
-            width:6000px;
-            height: 100%;
-      }
-
-    </style>
+    <script src="./js/main.js"></script>
+    <link href="./css/main.css" rel="stylesheet">
   </head>
   <body>
     <div id="timeline">
@@ -169,11 +17,12 @@
             <div id="triangle"></div>
             <div id="line"></div>
         </div>
-
         <div class="pep">
             <div id="matrix">
             </div>
         </div>
+    </div>
+    <div id="body">
     </div>
   </body>
 </html>
