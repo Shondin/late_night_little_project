@@ -1,24 +1,25 @@
 [
   {
     "id": 1,
-    "name": "Movie",
+    "name": "Безумный Макс: Дорога ярости",
     "time": 998982300000,
     "info": {
-      "genre": "Apple",
-      "director": 16,
+      "genre": "боевик, фантастика, приключения",
+      "country":"Австралия, США",
+      "director": "Джордж Миллер",
       "runtime": 109
     },
-   "image":  "/img/test.png"
+   "image":  "/img/mmax.png"
 
   },
   {
     "id": 2,
-    "name": "Movie 1",
+    "name": "Бэйб",
     "time": 998985600000,
     "info": {
-      "genre": "Apple",
-      "country": "СЃС€Р°",
-      "director": "Tony Scott",
+      "genre": "фэнтези, драма, комедия, приключения, семейный,",
+      "country": "Австралия°",
+      "director": "Джордж Миллер",
       "runtime": 109
     },
     "image":  "/img/uragan_tornado.jpg"

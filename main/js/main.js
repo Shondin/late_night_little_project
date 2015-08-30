@@ -57,7 +57,7 @@
         var getCard = function(data){
             return "<div class='card'>" +
                         "<div class='img'><img width='300px' height='100px' src="+data.image+"></div>"+
-                        "<div class='info'>"+data.info.name+"</div>"+
+                        "<div class='info'>"+data.name+"</div>"+
                         "</div>";
         }
 

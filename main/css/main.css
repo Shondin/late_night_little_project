@@ -2,7 +2,13 @@ body {
     overflow: hidden;
     background-color: #111;
 }
-
+#head{
+    height: 20px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #111;
+}
 .pep {
     width: 6000px;
     height: 200px;
@@ -18,33 +24,31 @@ body {
     position: absolute;
     top: 0;
     left: 50%;
-    height: 60px;
-    width: 60px;
+    height: 200px;
+    margin-left: -50px;
+    z-index: 99;
 }
 
 #line {
     position: absolute;
-    width: 4px;
+    width: 2px;
     height: 100%;
     cursor: pointer;
+    margin-left: 24px;
     background: rgb(60, 120, 255);
     background: -moz-linear-gradient(top, rgba(60, 120, 255, 1) 0%, rgba(10, 80, 180, 1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(60, 120, 255, 1)), color-stop(100%, rgba(10, 80, 180, 1))); /* Chrome,Safari4+ */
 }
 
-#indicator {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -50px;
-}
 
 #triangle {
     background: rgb(60, 120, 255);
     background: -moz-linear-gradient(top, rgba(60, 120, 255, 1) 0%, rgba(10, 80, 180, 1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(60, 120, 255, 1)), color-stop(100%, rgba(10, 80, 180, 1))); /* Chrome,Safari4+ */
     -webkit-transform: rotate(45deg);
+    height: 30px;
+    width: 30px;
+    margin-top: -26px;
 }
 
 span.time {
