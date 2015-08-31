@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+<script type="text/javascript">
+        window.onload=function(){
+            var d = new Date();
+            var time1 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(),0 );
+            var time2 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()-3),0 );
+            document.body.innerHTML = "time1"+time1.getTime()+"<br> time2 "+time2.getTime()+"";
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
