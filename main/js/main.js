@@ -20,7 +20,7 @@
             clas ="";
             span = null;
             var e = document.createElement("div");
-            if(i>60){
+            if(i>59){
                 min = i%60;
             }else{
                 min = i;
@@ -28,7 +28,7 @@
 
             hour = parseInt(start_time+i/60);
             if(i%5==0){
-                id="id='"+parseInt(hour+i/60)+"_"+min+"'";
+                id=hour+"_"+min;
                 if(min<10) min = "0"+min;
                 span = document.createElement("span");
                 span.className = "time"
@@ -63,7 +63,7 @@
 
         var getCard = function(data){
             return "<div class='card'>" +
-                        "<div class='img'><img width='300px' height='100px' src="+data.image+"></div>"+
+                        "<div class='img'><img width='200px' height='100px' src="+data.image+"></div>"+
                         "<div class='info'>"+data.name+"</div>"+
                         "</div>";
         }
@@ -83,6 +83,17 @@
         }
         //renderCard("998902800000");
         $.getJSON( "cards.json", function( data ) {
-            renderCards(data)
+            renderCards(data);
+            generateSlidesHTML(data);
         });
+        function generateSlidesHTML(data) {
+
+            var container = $('.slider-content');
+
+            var theTemplateScript = $("#slide-template").html();
+            //Compile the template​
+            var theTemplate = Handlebars.compile(theTemplateScript);
+            container.append(theTemplate(data));
+        }
+
       });

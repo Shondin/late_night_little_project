@@ -1,3 +1,7 @@
+html,body{
+    width:100%;
+    overflow: hidden;
+}
 body {
     overflow: hidden;
     background-color: #111;
@@ -68,6 +72,7 @@ span.time {
     background-color: #111;
     padding: 10px;
     position: absolute;
+    cursor:pointer;
 }
 .col:after {
     position: absolute;
@@ -96,3 +101,17 @@ span.time {
     height: 100%;
 }
 
+.slider {
+    margin-top: 300px;
+
+}
+.slider-content{
+    width: 4000px;
+    display: flex;
+    flex-direction: row ;
+     flex-wrap: nowrap ;
+}
+.slide{
+    width:100%;
+    color:white;
+}
