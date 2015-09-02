@@ -6,16 +6,20 @@
 
         var pep_width = window.innerWidth*2; // ширина таймлайна - 6 экранов
             pep_el.style.width = pep_width+'px';
-        var minutes_img_width = 10;
-        var minutes = (pep_width/minutes_img_width)/2;
-        var start_time = parseInt((now.getHours() - minutes/60));
+        var minutes_img_width = 10; // ширина минутной риски
+        var all_minutes = (pep_width/minutes_img_width);
+        var all_hours = all_minutes/60;
+        var hours = Math.floor(all_hours);
+        var minutes = Math.floor(getDecimal(all_hours)*60);
+
+        var start_time = parseInt((now.getHours() - hours/2));
 
         //cur time
         var id; var clas;
         var span; var min; var hour ;
-            minutes *= 2;
         var div = document.createElement("div");
-        for (var i =0; i<=minutes; i++){
+        var m = all_minutes-minutes;
+        for (var i =minutes; i<=m; i++) {
             id ="";
             clas ="";
             span = null;
@@ -31,16 +35,15 @@
                 id=hour+"_"+min;
                 if(min<10) min = "0"+min;
                 span = document.createElement("span");
-                span.className = "time"
-                span.innerHTML = hour+":"+min
-                clas = clas+" l"
+                span.className = "time";
+                span.innerHTML = hour+":"+min;
+                clas = clas+" l";
             }
             e.id = id;
             e.className="col "+clas;
             e.style.width =minutes_img_width;
             matrix_el.appendChild(e);
             if(span!=null) matrix_el.appendChild(span);
-
         }
 
 
