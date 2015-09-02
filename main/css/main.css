@@ -13,11 +13,13 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 98;
+    z-index: 100;
     background-color: #111;
     border-radius: 50px;
     margin-top: -20px;
+
 }
+
 #pep {
     width: 6000px;
     height: 200px;
@@ -50,7 +52,6 @@ body {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(60, 120, 255, 1)), color-stop(100%, rgba(10, 80, 180, 1))); /* Chrome,Safari4+ */
 }
 
-
 #triangle {
     background: rgb(60, 120, 255);
     background: -moz-linear-gradient(top, rgba(60, 120, 255, 1) 0%, rgba(10, 80, 180, 1) 100%); /* FF3.6+ */
@@ -60,7 +61,6 @@ body {
     width: 30px;
     margin-top: -26px;
 }
-
 span.time {
     position: absolute;
     bottom: 0;
@@ -90,26 +90,22 @@ span.time {
     height: 13px;
     margin-bottom: -22px;
 }
-
-.col {
+.col{
     display: inline-block;
     height: 100%;
 }
-
 #matrix {
     width: 6000px;
     height: 100%;
 }
-
 .slider {
     margin-top: 300px;
-
 }
 .slider-content{
     width: 4000px;
     display: flex;
     flex-direction: row ;
-     flex-wrap: nowrap ;
+    flex-wrap: nowrap;
 }
 .slide{
     width:100%;

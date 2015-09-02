@@ -1,6 +1,7 @@
  $(function(){
         var pep_el = document.getElementById('pep');
-        var matrix_el =document.getElementById("matrix");
+        var matrix_el = document.getElementById("matrix");
+        var card_el =  document.querySelectorAll(".card");
 
         var now = new Date();
 
@@ -84,19 +85,21 @@
                    renderCard(item.time, card);
               });
         }
+
         //renderCard("998902800000");
         $.getJSON( "cards.json", function( data ) {
             renderCards(data);
             generateSlidesHTML(data);
         });
+
         function generateSlidesHTML(data) {
-
             var container = $('.slider-content');
-
             var theTemplateScript = $("#slide-template").html();
             //Compile the template​
             var theTemplate = Handlebars.compile(theTemplateScript);
             container.append(theTemplate(data));
         }
+        card_el.addEventListener('click', function(){
 
+        });
       });
