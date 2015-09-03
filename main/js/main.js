@@ -1,8 +1,7 @@
  $(function(){
         var pep_el = document.getElementById('pep');
         var matrix_el = document.getElementById("matrix");
-        var card_el =  document.querySelectorAll(".card");
-
+        var line_el = document.getElementById('line');
         var now = new Date();
 
         var pep_width = window.innerWidth*2; // ширина таймлайна - 6 экранов
@@ -47,59 +46,41 @@
             if(span!=null) matrix_el.appendChild(span);
         }
 
-
-        $(pep_el).pep({
+        var line_margin = getLeft(line_el);
+        var pep = $(pep_el).pep({
               axis: 'x',
+              cssEaseString:"cubic-bezier(0.000, 0.000, 0.580, 1.000)",
+              startThreshold: [5, 5],
+              elementsWithInteraction:'.card',
               //constrainTo: [0, 6000, 0, -3000],
-
               initiate: function(ev, obj) {},
               start: function(ev, obj)    {},
               drag: function(ev, obj)     {},
-              stop: function(ev, obj)     {},
+              stop: function(ev, obj)     {
+                  if(ev.target.className == "card"){
+                        obj.moveTo(line_margin,0)
+                  }
+              },
               rest: function(ev, obj)     {}
         });
 
         var check_left_position = function(left){
-                if(left>window.innerWidth*3){
-
-                }
+                if(left>window.innerWidth*3){}
         }
 
-        var getCard = function(data){
-            return "<div class='card'>" +
-                        "<div class='img'><img width='200px' height='100px' src="+data.image+"></div>"+
-                        "<div class='info'>"+data.name+"</div>"+
-                        "</div>";
-        }
 
-        var renderCard = function(timestamp, card) {
-            var time = new Date(parseInt(timestamp));
-            var minutes = time.getMinutes();
-            $('#'+time.getHours()+"_"+ minutes).addClass('has-card').append(card);
-        }
-
-        function renderCards(data){
-              var card = "";
-              data.forEach(function (item) {
-                   card = getCard(item);
-                   renderCard(item.time, card);
-              });
-        }
 
         //renderCard("998902800000");
-        $.getJSON( "cards.json", function( data ) {
+        $.getJSON( "cards.json", function( data ){
             renderCards(data);
             generateSlidesHTML(data);
         });
 
-        function generateSlidesHTML(data) {
-            var container = $('.slider-content');
-            var theTemplateScript = $("#slide-template").html();
-            //Compile the template​
-            var theTemplate = Handlebars.compile(theTemplateScript);
-            container.append(theTemplate(data));
-        }
-        card_el.addEventListener('click', function(){
-
+        //var card_el =  document.querySelectorAll(".card");
+        //card_el.addEventListener('click', function(){
+        //    pep.moveTo(line_margin);
+        //});
+        $('body').on('click','.card',function(){
+            pep.moveTo(line_margin);
         });
       });

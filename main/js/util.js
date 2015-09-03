@@ -8,3 +8,8 @@ function getDecimal(num) {
   str = str.slice(zeroPos);
   return +str;
 }
+function getLeft(object){
+    var rect = object.getBoundingClientRect();
+    var left =  rect.left + document.body.scrollLeft;
+    return left;
+}
