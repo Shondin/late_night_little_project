@@ -31,6 +31,10 @@
             }
 
             hour = parseInt(start_time+i/60);
+            if(hour>23){
+                hour = hour%24;
+
+            }
             if(i%5==0){
                 id=hour+"_"+min;
                 if(min<10) min = "0"+min;
@@ -41,26 +45,21 @@
             }
             e.id = id;
             e.className="col "+clas;
-            e.style.width =minutes_img_width;
+            e.style.width = minutes_img_width;
             matrix_el.appendChild(e);
             if(span!=null) matrix_el.appendChild(span);
         }
 
         var line_margin = getLeft(line_el);
-        var pep = $(pep_el).pep({
+        $(pep_el).pep({
               axis: 'x',
-              cssEaseString:"cubic-bezier(0.000, 0.000, 0.580, 1.000)",
               startThreshold: [5, 5],
               elementsWithInteraction:'.card',
               //constrainTo: [0, 6000, 0, -3000],
               initiate: function(ev, obj) {},
               start: function(ev, obj)    {},
               drag: function(ev, obj)     {},
-              stop: function(ev, obj)     {
-                  if(ev.target.className == "card"){
-                        obj.moveTo(line_margin,0)
-                  }
-              },
+              stop: function(ev, obj)     {},
               rest: function(ev, obj)     {}
         });
 
@@ -68,19 +67,43 @@
                 if(left>window.innerWidth*3){}
         }
 
-
+        var pep = $.pep.peps[0];
 
         //renderCard("998902800000");
         $.getJSON( "cards.json", function( data ){
+            $('.slider-content').width(data.length*window.innerWidth)
             renderCards(data);
             generateSlidesHTML(data);
         });
 
-        //var card_el =  document.querySelectorAll(".card");
-        //card_el.addEventListener('click', function(){
-        //    pep.moveTo(line_margin);
+        var card_el =  document.querySelectorAll(".card");
+        card_el.addEventListener('click', function(){
+            var left = getLeft(this);
+            var dx = line_margin-left;
+
+            pep.doMoveTo( dx, 0 )
+        }, false);
+
+        //$('body').on('click','.card',function(){
+        //    var left = getLeft(this);
+        //    var dx = line_margin-left;
+        //
+        //    pep.doMoveTo( dx, 0 )
         //});
-        $('body').on('click','.card',function(){
-            pep.moveTo(line_margin);
-        });
       });
+
+ var move = function(value) {
+     var value = "translateX("+ value+"px)";
+     this.$el.css({
+         '-webkit-transform': value ,
+         '-moz-transform': value,
+         '-ms-transform': value,
+         '-o-transform': value,
+         'transform': value  });
+ };
+
+ //$(window).on('resize',function(){
+ //    $('.slide').css({
+ //        'width':window.innerWidth+"px"
+ //    })
+ //})

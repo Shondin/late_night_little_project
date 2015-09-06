@@ -21,12 +21,13 @@
             </div>
         </div>
     <div id="body" class="slider">
-        <div id="left-arrow" class="controls"></div>
+        <div id="left-arrow" class=" controls"></div>
+        <div id="right-arrow" class=" controls"></div>
             <div class="slider-content">
                   <script id="slide-template" type="x-handlebars-template">​
                     {{#each this}}
                       <div class="slide" data-index="{{id}}">
-                        <a href="#" class="product-photo"><img src="{{image}}" height="130" alt="{{name}}"/></a>
+                        <a href="#" class="product-photo"><img src="./{{image}}" height="130" alt="{{name}}"/></a>
                         <h2><a href="#"> {{name}} </a></h2>
                         <ul class="product-description">
                             <li><span>Director: </span>{{info.director}}</li>
@@ -40,8 +41,8 @@
                   </script> 
             </div>
 
-        <div id="right-arrow" class="controls"></div>
     </div>
+
 
      <script src="./js/lib/jquery.pep.js"></script>
     <script src="./js/lib/handlebars.min.js"></script>

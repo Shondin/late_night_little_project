@@ -7,7 +7,7 @@
         window.onload=function(){
             var d = new Date();
             var time1 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(),0 );
-            var time2 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()-3),0 );
+            var time2 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()+1),0 );
             document.body.innerHTML = "time1"+time1.getTime()+"<br> time2 "+time2.getTime()+"";
         }
 

@@ -392,7 +392,7 @@
   };
 
   //  handleStop();
-  //    the logic for when the stop events occur
+  //    the logic for when the stop even ts occur
   Pep.prototype.handleStop = function(ev) {
 
             // no need to handle stop event if we're not active

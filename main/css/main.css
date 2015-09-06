@@ -17,7 +17,6 @@ body {
     background-color: #111;
     border-radius: 50px;
     margin-top: -20px;
-
 }
 
 #pep {
@@ -102,7 +101,6 @@ span.time {
     margin-top: 300px;
 }
 .slider-content{
-    width: 4000px;
     display: flex;
     flex-direction: row ;
     flex-wrap: nowrap;
@@ -110,4 +108,49 @@ span.time {
 .slide{
     width:100%;
     color:white;
+}
+.controls{
+    position: absolute;
+    border: 1px white solid;
+    height: 100%;
+    width: 30px;
+    cursor:pointer;
+}
+.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}
+
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
+
+#right-arrow{
+    right:0;
+}
+#left-arrow{
+    left:0;
+}
+.get-right{
+    float:right;
+}
+.get-left{
+    float:left;
 }
