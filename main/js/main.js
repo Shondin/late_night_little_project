@@ -4,8 +4,9 @@
         var line_el = document.getElementById('line');
         var now = new Date();
 
-        var pep_width = window.innerWidth*2; // ширина таймлайна - 6 экранов
+        var pep_width = window.screen.width*6; // ширина таймлайна - 6 экранов
             pep_el.style.width = pep_width+'px';
+            matrix_el.style.width = pep_width+'px';
         var minutes_img_width = 10; // ширина минутной риски
         var all_minutes = (pep_width/minutes_img_width);
         var all_hours = all_minutes/60;
@@ -70,37 +71,86 @@
         var pep = $.pep.peps[0];
 
         //renderCard("998902800000");
+
+        var slider_el = document.getElementById('slider-content');
+        var data_len;
         $.getJSON( "cards.json", function( data ){
-            $('.slider-content').width(data.length*window.innerWidth)
+            data_len = data.length;
+            slider_el.style.width = data_len*window.innerWidth;
             renderCards(data);
             generateSlidesHTML(data);
         });
 
-        var card_el =  document.querySelectorAll(".card");
-        card_el.addEventListener('click', function(){
+
+        $('body').on('click','.card',function(){
             var left = getLeft(this);
             var dx = line_margin-left;
 
-            pep.doMoveTo( dx, 0 )
-        }, false);
+            pep.doMoveTo( dx, 0 );
+        });
 
-        //$('body').on('click','.card',function(){
-        //    var left = getLeft(this);
-        //    var dx = line_margin-left;
-        //
-        //    pep.doMoveTo( dx, 0 )
-        //});
-      });
+        window.onresize = function(event) {
+            slider_el.style.width = data_len*window.innerWidth;
+        };
 
- var move = function(value) {
-     var value = "translateX("+ value+"px)";
-     this.$el.css({
-         '-webkit-transform': value ,
-         '-moz-transform': value,
-         '-ms-transform': value,
-         '-o-transform': value,
-         'transform': value  });
+     var slide_el  = document.getElementsByClassName('slide');
+     var left_btn  = document.getElementById('left-arrow');
+     var right_btn = document.getElementById('right-arrow');
+
+     right_btn.addEventListener('click',function(){
+         var active = document.getElementsByClassName('active');
+         var next = active.nextElementSibling
+         removeClass(active,'active');
+         addClass(next,'active');
+         move('100%',200);
+     });
+
+     left_btn.addEventListener('click',function(){
+         var active = document.getElementsByClassName('active');
+         var prev = active.previousElementSibling;
+         removeClass(active,'active');
+         addClass(prev,'active');
+         move('-100%',200);
+     });
+
+     function addClass(el,className){
+        if (el.classList)
+          el.classList.add(className);
+        else
+          el.className += ' ' + className;
+     }
+
+     function removeClass(el, className){
+        if (el.classList){
+            el.classList.remove(className);
+        }
+        else{
+            el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        }
+     }
+
+     function isHidden(el) {
+        return (el.offsetParent === null)
+     }
+     var move = function(value, dur) {
+        var value = "translateX("+ value+"px)";
+        slide_el.css({
+             '-webkit-transform': value ,
+             '-moz-transform': value,
+             '-ms-transform': value,
+             '-o-transform': value,
+             'transform': value ,
+             'transition-duration': dur+'ms',
+             '-webkit-transition-duration': dur+'ms',
+             '-moz-transition-duration': dur+'ms',
+             '-o-transition-duration': dur+'ms',
+             '-ms-transition-duration': dur+'ms'
+        });
  };
+ });
+
+
+
 
  //$(window).on('resize',function(){
  //    $('.slide').css({

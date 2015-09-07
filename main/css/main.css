@@ -97,10 +97,10 @@ span.time {
     width: 6000px;
     height: 100%;
 }
-.slider {
+#slider {
     margin-top: 300px;
 }
-.slider-content{
+#slider-content{
     display: flex;
     flex-direction: row ;
     flex-wrap: nowrap;
@@ -108,6 +108,18 @@ span.time {
 .slide{
     width:100%;
     color:white;
+
+    transition: linear; /*  future */
+    -webkit-transition: linear; /* chrome, safari, etc. */
+    -moz-transition: linear; /*     firefox*/
+    -ms-transition: linear; /*  microsoft */
+    -o-transition: linear; /*opera*/
+
+    transition-duration: 0ms;
+    -webkit-transition-duration: 0ms;
+    -moz-transition-duration: 0ms;
+    -o-transition-duration: 0ms;
+    -ms-transition-duration: 0ms;
 }
 .controls{
     position: absolute;
