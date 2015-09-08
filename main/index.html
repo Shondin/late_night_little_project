@@ -13,41 +13,40 @@
   <body>
         <div id="head"></div>
         <div id="indicator">
- <!--           <div id="triangle"></div> -->
             <div id="line"></div>
         </div>
         <div id="pep">
             <div id="matrix">
             </div>
         </div>
-    <div id="slider" >
-        <div id="left-arrow" class=" controls"></div>
-        <div id="right-arrow" class=" controls"></div>
-            <div id="slider-content">
-                  <div class="slide active" data-index="0">
-                        <div id="main-schedule">
-                            <div class="title">Расписание</div>
-                        </div>
-                  </div>
-                  <script id="slide-template" type="x-handlebars-template">​
-                    {{#each this}}
-                      <div class="slide" data-index="{{id}}">
-                        <a href="#" class="card-photo"><img src="./{{image}}" height="130" alt="{{name}}"/></a>
-                        <h2><a href="#"> {{name}} </a></h2>
-                        <ul class="card-description">
-                            <li><span>Director: </span>{{info.director}}</li>
-                            <li><span>Genre: </span>{{info.genre}}</li>
-                            <li><span>Runtime: </span>{{info.manufature}}</li>
-                        </ul>
-                        <div class="highlight"></div>
+        <div id="slider" >
+            <div id="left-arrow" class=" controls"></div>
+            <div id="right-arrow" class=" controls"></div>
+                <div id="slider-content">
+                      <div class="slide active" data-index="0">
+                            <div id="main-schedule">
+                                <div class="title">Расписание</div>
+                            </div>
                       </div>
-                    {{/each}}
-                  </script> 
-            </div>
-    </div>
+                      <script id="slide-template" type="x-handlebars-template">​
+                        {{#each this}}
+                          <div class="slide" id="{{id}}">
+                            <a href="#" class="card-photo"><img src="./{{image}}" height="130" alt="{{name}}"/></a>
+                            <h2><a href="#"> {{name}} </a></h2>
+                            <ul class="card-description">
+                                <li><span>Director: </span>{{info.director}}</li>
+                                <li><span>Genre: </span>{{info.genre}}</li>
+                                <li><span>Runtime: </span>{{info.manufature}}</li>
+                            </ul>
+                            <div class="highlight"></div>
+                          </div>
+                        {{/each}}
+                      </script> 
+                </div>
+        </div>
 
 
-     <script src="./js/lib/jquery.pep.js"></script>
+    <script src="./js/lib/jquery.pep.js"></script>
     <script src="./js/lib/handlebars.min.js"></script>
     <script src="./js/util.js"></script>
     <script src="./js/view.js"></script>
