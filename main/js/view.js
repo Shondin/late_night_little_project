@@ -68,10 +68,11 @@ function renderCards(data) {
     });
 }
 
-function generateSlidesHTML(data) {
-    var container = $('.slider-content');
+function renderSlides(data) {
+    //var container = $('.slider-content');
+    var container = document.getElementById('slider-content');
     var theTemplateScript = $("#slide-template").html();
     //Compile the template​
     var theTemplate = Handlebars.compile(theTemplateScript);
-    container.append(theTemplate(data));
+    container.insertAdjacentHTML('beforeend', theTemplate(data))
 }

@@ -4,7 +4,7 @@ html,body{
 }
 body {
     overflow: hidden;
-    background-color: #111;
+    /*background-color: #111;*/
     margin: 0;
     padding: 0;
 }
@@ -14,7 +14,7 @@ body {
     top: 0;
     width: 100%;
     z-index: 100;
-    background-color: #111;
+    /*background-color: #111;*/
     border-radius: 50px;
     margin-top: -20px;
 }
@@ -24,7 +24,8 @@ body {
     height: 200px;
     color: white;
     opacity: 0.8;
-    background: #314036;
+    /*background: #314036;*/
+    background: #eee;
     position: absolute;
     top: 0;
     left: 0px;
@@ -46,9 +47,9 @@ body {
     height: 100%;
     cursor: pointer;
     margin-left: 14px;
-    background: rgb(60, 120, 255);
-    background: -moz-linear-gradient(top, rgba(60, 120, 255, 1) 0%, rgba(10, 80, 180, 1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(60, 120, 255, 1)), color-stop(100%, rgba(10, 80, 180, 1))); /* Chrome,Safari4+ */
+    /*background: rgb(60, 120, 255);*/
+    /*background: -moz-linear-gradient(top, rgba(60, 120, 255, 1) 0%, rgba(10, 80, 180, 1) 100%); *//* FF3.6+ */
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(60, 120, 255, 1)), color-stop(100%, rgba(10, 80, 180, 1))); *//* Chrome,Safari4+ */
 }
 
 #triangle {
@@ -123,7 +124,7 @@ span.time {
 }
 .controls{
     position: absolute;
-    border: 1px white solid;
+    border: 1px #eee solid;
     height: 100%;
     width: 30px;
     cursor:pointer;
