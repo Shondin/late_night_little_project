@@ -28,9 +28,18 @@
                                 <div class="title">Расписание</div>
                             </div>
                       </div>
-                      <script id="slide-template" type="x-handlebars-template">​
+                </div>
+        </div>
+
+
+    <script src="./js/lib/jquery.pep.js"></script>
+    <script src="./js/lib/handlebars.min.js"></script>
+    <script src="./js/util.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/main.js"></script>
+    <script id="slide-template" type="x-handlebars-template">​
                         {{#each this}}
-                          <div class="slide" id="{{id}}">
+                          <div class="slide" data-index="{{id}}">
                             <a href="#" class="card-photo"><img src="./{{image}}" height="130" alt="{{name}}"/></a>
                             <h2><a href="#"> {{name}} </a></h2>
                             <ul class="card-description">
@@ -41,15 +50,6 @@
                             <div class="highlight"></div>
                           </div>
                         {{/each}}
-                      </script> 
-                </div>
-        </div>
-
-
-    <script src="./js/lib/jquery.pep.js"></script>
-    <script src="./js/lib/handlebars.min.js"></script>
-    <script src="./js/util.js"></script>
-    <script src="./js/view.js"></script>
-    <script src="./js/main.js"></script>
+    </script> 
   </body>
 </html>

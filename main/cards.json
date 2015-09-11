@@ -1,7 +1,7 @@
 [
   {
-    "id": 1441094400000,
-    "name": "Безумный макс",
+    "id": 1,
+    "name": "...",
     "time": 1441612800000,
     "info": {
       "genre": "фанктастика",
@@ -9,11 +9,59 @@
       "director": "Джордж Мллер",
       "runtime": 109
     },
-   "image":  "/img/mmax.png"
+   "image":  "/img/mmaxx.png"
 
   },
   {
-    "id": 1441083600000,
+    "id": 2,
+    "name": "Бейб",
+    "time": 1441616400000,
+    "info": {
+      "genre": "комедия",
+      "country": "Автсралия",
+      "director": "Джордж Мллер",
+      "runtime": 109
+    },
+    "image":  "/img/uragan_tornado.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Бейб",
+    "time": 1441616400000,
+    "info": {
+      "genre": "комедия",
+      "country": "Автсралия",
+      "director": "Джордж Мллер",
+      "runtime": 109
+    },
+    "image":  "/img/uragan_tornado.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Бейб",
+    "time": 1441616400000,
+    "info": {
+      "genre": "комедия",
+      "country": "Автсралия",
+      "director": "Джордж Мллер",
+      "runtime": 109
+    },
+    "image":  "/img/uragan_tornado.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Бейб",
+    "time": 1441616400000,
+    "info": {
+      "genre": "комедия",
+      "country": "Автсралия",
+      "director": "Джордж Мллер",
+      "runtime": 109
+    },
+    "image":  "/img/uragan_tornado.jpg"
+  },
+  {
+    "id": 6,
     "name": "Бейб",
     "time": 1441616400000,
     "info": {

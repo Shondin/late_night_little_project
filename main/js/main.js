@@ -2,7 +2,7 @@
         var $pep = document.getElementById('pep');
         var $line = document.getElementById('line');
         var $slider = document.getElementById('slider-content');
-        var pep_width = window.screen.width*6; // ширина таймлайна - 6 экранов
+        var pep_width = window.screen.width*8; // ширина таймлайна - 8 экранов
             $pep.style.width = pep_width+'px';
 
         renderTimeline(pep_width);
@@ -12,7 +12,7 @@
         $.getJSON( "cards.json", function( data ){
             data_len = data.length;
             $slider.style.width = data_len*window.innerWidth;
-            renderCards(data);
+            //renderCards(data);
             renderSlides(data);
         });
 
@@ -58,7 +58,7 @@
               axis: 'x',
               startThreshold: [5, 5],
               elementsWithInteraction:'.card',
-              //constrainTo: [0, 6000, 0, -3000],
+              constrainTo: [0, (pep_width), 0, (pep_width-screen.availWidth)],
               initiate: function(ev, obj) {},
               start: function(ev, obj)    {},
               drag: function(ev, obj)     {},
@@ -66,7 +66,7 @@
               rest: function(ev, obj)     {}
         });
 
-        var check_left_position = function(left){
+        var check_left_position = function(left) {
                 if(left>window.innerWidth*3){}
         }
 
