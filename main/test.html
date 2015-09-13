@@ -6,9 +6,23 @@
 <script type="text/javascript">
         window.onload=function(){
             var d = new Date();
-            var time1 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(),0 );
-            var time2 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()+1),0 );
-            document.body.innerHTML = "time1"+time1.getTime()+"<br> time2 "+time2.getTime()+"";
+            var time1 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()-2),0 );
+            var time2 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()),0 );
+            var time3 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()+2),0 );
+            var time4 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()+3),0 );
+            var time5 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()+4),0 );
+            var time6 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()+5),0 );
+            var time7 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()+6),0 );
+            var time8 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), (d.getHours()+7),0 );
+            document.body.innerHTML = "time1"+time1.getTime()+
+                    "<br> time2 "+time2.getTime()+""+
+                    "<br> time3 "+time3.getTime()+""+
+                    "<br> time4 "+time4.getTime()+""+
+                    "<br> time5 "+time5.getTime()+""+
+                    "<br> time6 "+time6.getTime()+""+
+                    "<br> time7 "+time7.getTime()+""+
+                    "<br> time8 "+time8.getTime()+"";
+
         }
 
     </script>
