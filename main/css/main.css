@@ -21,12 +21,10 @@ body {
 }
 
 #pep {
-    width: 6000px;
     height: 200px;
     color: white;
     opacity: 0.8;
     background: #314036;
-    background: #eee;
     position: absolute;
     top: 0;
     left: 0;

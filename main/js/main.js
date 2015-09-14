@@ -2,22 +2,26 @@
         var $pep = document.getElementById('pep');
         var $line = document.getElementById('line');
         var $slider = document.getElementById('slider-content');
-        var pep_width = window.screen.width*4; // ширина таймлайна - 8 экранов
+        var pep_width = window.screen.width*4; // ширина таймлайна - 4 экранов
             $pep.style.width = pep_width+'px';
+            $pep.style.marginLeft = -pep_width/2;
 
-        renderTimeline(pep_width);
-
+        // загружаем список фильмов и отображаем их на таймлайне и в слайдере
         var data_len;
-        $.getJSON( "cards.json", function( data ){
+        var data = $.getJSON( "cards.json", function( data ){
             data_len = data.length+1;
             $slider.style.width = data_len*screen.availWidth;
-            renderCards(data);
-            renderSlides(data);
+            return data;
         });
 
+       // отрисовка таймлайна
+        renderTimeline(pep_width);
+        renderCards(data);
+        renderSlides(data);
+        renderSchedule(data);
+     // Обработчики кнопок "влево", "вправо" у слайдера
          var left_btn  = document.getElementById('left-arrow');
          var right_btn = document.getElementById('right-arrow');
-
          right_btn.addEventListener('click',function(){
              var active = document.getElementsByClassName('active')[0];
              try {
@@ -41,14 +45,15 @@
              }catch(e){
                  return false;
              }
+
              if(prev){
                  removeClass(active, 'active');
                  addClass(prev, 'active');
                  moveSlider(left, 200);
              }
-
          });
 
+        // "движок" слайдера
          var moveSlider = function(value, dur) {
             var value = "translateX("+ value+"px)";
             var css = {
@@ -67,6 +72,7 @@
         };
 
         var line_margin = getLeft($line);
+        // "джижок" таймлайна
         $($pep).pep({
               axis: 'x',
               //startThreshold: [5, 5],
@@ -87,20 +93,16 @@
 
         //renderCard("998902800000");
 
+        // при клике на карточку - сдвигаем ее к центру таймлайна
+        // слайдер прокручиваем до информации о фильме из карточки
         $('body').on('click','.card',function(){
             var left = getLeft(this);
             var dx = line_margin-left;
-            var xOp;
-            if(dx>0){
-                xOp = "+="+dx;
-            }else if(dx<0){
-                xOp = "-="+Math.abs(dx)
-            }
             var id = $(this).data('id');
             var $slide = document.getElementById(id);
             var left = getLeft($slide);
-            moveSlider(left);
-          pep.moveToUsingTransforms( dx,  0);
+            moveSlider(-left);
+            pep.moveToUsingTransforms( dx, 0);
             //pep.options.moveTo( xOp, 0, true );
         });
 
