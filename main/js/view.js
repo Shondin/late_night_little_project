@@ -78,7 +78,7 @@ function renderSlides(data) {
     var theTemplateScript = $("#slide-template").html();
     //Compile the template​
     var theTemplate = Handlebars.compile(theTemplateScript);
-    container.insertAdjacentHTML('beforeend', theTemplate(data));
+    container.insertAdjacentHTML('beforeEnd', theTemplate(data));
 }
 
 function renderSchedule(data) {
@@ -87,5 +87,5 @@ function renderSchedule(data) {
     var theTemplateScript = $("#slide-template").html();
     //Compile the template​
     var theTemplate = Handlebars.compile(theTemplateScript);
-    container.insertAdjacentHTML('beforeend', theTemplate(data));
+    container.insertAdjacentHTML('beforeEnd', theTemplate(data));
 }

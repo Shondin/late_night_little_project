@@ -1,7 +1,8 @@
-html,body{
-    width:100%;
+html, body {
+    width: 100%;
     overflow: hidden;
 }
+
 body {
     overflow: hidden;
     background-color: #111;
@@ -9,7 +10,8 @@ body {
     padding: 0;
     font-family: 'Droid Sans', Verdana, Tahoma, Arial, sans-serif;
 }
-#head{
+
+#head {
     height: 40px;
     position: absolute;
     top: 0;
@@ -24,7 +26,7 @@ body {
     height: 200px;
     color: white;
     opacity: 0.8;
-    background: #314036;
+    background: #0c4b33;
     position: absolute;
     top: 0;
     left: 0;
@@ -37,7 +39,7 @@ body {
     height: 200px;
     margin-left: -15px;
     width: 30px;
-    z-index:99;
+    z-index: 99;
 }
 
 #line {
@@ -60,6 +62,7 @@ body {
     width: 30px;
     margin-top: -26px;
 }
+
 span.time {
     position: absolute;
     bottom: 0;
@@ -67,103 +70,139 @@ span.time {
     margin-left: -23px;
     font-size: 12px;
 }
-.card{
+
+.card {
     background-color: #111;
     padding: 10px;
     position: absolute;
-    cursor:pointer;
-    margin-top:40px;
+    cursor: pointer;
+    margin-top: 40px;
 }
+
 .col:after {
     position: absolute;
-    border-left: 1px white solid;
+    border-left: 1px #44B78B solid;
     content: '';
     height: 7px;
     width: 1px;
     bottom: 0;
     margin-bottom: -20px;
 }
-.col.has-card{
-    border-left:1px grey solid;
+
+.col.has-card {
+    border-left: 1px grey solid;
 }
+
 .col.l:after {
     height: 13px;
     margin-bottom: -22px;
 }
-.col{
+
+.col {
     display: inline-block;
     height: 100%;
 }
+
 #matrix {
     width: 6000px;
     height: 100%;
 }
+
 #slider {
     margin-top: 300px;
 }
-#slider-content{
+
+#slider-content {
     display: flex;
-    flex-direction: row ;
+    flex-direction: row;
     flex-wrap: nowrap;
 }
-.slide{
-    width:100%;
-    color:white;
 
-    transition: linear; /*  future */
-    -webkit-transition: linear; /* chrome, safari, etc. */
-    -moz-transition: linear; /*     firefox*/
-    -ms-transition: linear; /*  microsoft */
-    -o-transition: linear; /*opera*/
+.slide {
+    width: 100%;
+    color: white;
 
-    transition-duration: 0ms;
-    -webkit-transition-duration: 0ms;
-    -moz-transition-duration: 0ms;
-    -o-transition-duration: 0ms;
-    -ms-transition-duration: 0ms;
+    transition: cubic-bezier(0.190, 1.000, 0.220, 1.000); /*  future */
+    -webkit-transition: cubic-bezier(0.190, 1.000, 0.220, 1.000); /* chrome, safari, etc. */
+    -moz-transition: cubic-bezier(0.190, 1.000, 0.220, 1.000); /*     firefox*/
+    -ms-transition: cubic-bezier(0.190, 1.000, 0.220, 1.000); /*  microsoft */
+    -o-transition: cubic-bezier(0.190, 1.000, 0.220, 1.000); /*opera*/
+
+    transition-duration: 750ms;
+    -webkit-transition-duration: 750ms;
+    -moz-transition-duration: 750ms;
+    -o-transition-duration: 750ms;
+    -ms-transition-duration: 750ms;
 }
-.controls{
+
+.controls {
     position: absolute;
     border: 1px #eee solid;
     height: 100%;
     width: 30px;
-    cursor:pointer;
+    cursor: pointer;
 }
+
 .slide-in {
     animation: slide-in 0.5s forwards;
     -webkit-animation: slide-in 0.5s forwards;
 }
+
 .slide-out {
     animation: slide-out 0.5s forwards;
     -webkit-animation: slide-out 0.5s forwards;
 }
+
 @keyframes slide-in {
-    100% { transform: translateX(0%); }
+    100% {
+        transform: translateX(0%);
+    }
 }
 
 @-webkit-keyframes slide-in {
-    100% { -webkit-transform: translateX(0%); }
+    100% {
+        -webkit-transform: translateX(0%);
+    }
 }
 
 @keyframes slide-out {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 @-webkit-keyframes slide-out {
-    0% { -webkit-transform: translateX(0%); }
-    100% { -webkit-transform: translateX(-100%); }
+    0% {
+        -webkit-transform: translateX(0%);
+    }
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
 }
 
-#right-arrow{
-    right:0;
+#right-arrow:before {
+    content: "\003E";
 }
-#left-arrow{
-    left:0;
+
+#left-arrow:before {
+    content: "\003C";
 }
-.get-right{
-    float:right;
+
+#right-arrow {
+    right: 0;
 }
-.get-left{
-    float:left;
+
+#left-arrow {
+    left: 0;
+}
+
+.get-right {
+    float: right;
+}
+
+.get-left {
+    float: left;
 }
