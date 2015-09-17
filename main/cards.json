@@ -14,7 +14,7 @@
   },
   {
     "id": 2,
-    "name": "Бейб",
+    "name": "Фильм 1",
     "time": 1442134800000,
     "info": {
       "genre": "комедия",
@@ -22,11 +22,11 @@
       "director": "Джордж Мллер",
       "runtime": 109
     },
-    "image":  "/img/uragan_tornado.jpg"
+    "image":  "/img/mmax.png"
   },
   {
     "id": 3,
-    "name": "Фильм3",
+    "name": "Фильм 3",
     "time": 1442142000000,
     "info": {
       "genre": "комедия",

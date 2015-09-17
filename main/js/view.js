@@ -17,6 +17,7 @@ function renderTimeline(pep_width) {
     var hour;
     var div = document.createElement("div");
     var m = all_minutes - minutes;
+    var i0 = 0;
     for (var i = minutes; i <= m; i++) {
         id = "";
         clas = "";
@@ -41,13 +42,16 @@ function renderTimeline(pep_width) {
             span.className = "time";
             span.innerHTML = hour + ":" + min;
             clas = clas + " l";
-        }
 
-        e.id = id;
-        e.className = "col " + clas;
-        e.style.width = minutes_img_width;
-        $matrix.appendChild(e);
-        if (span != null) $matrix.appendChild(span);
+
+            e.id = id;
+            e.className = "col " + clas;
+            e.style.width = minutes_img_width;
+            e.style.marginLeft = 10*i0;
+            $matrix.appendChild(e);
+            if (span != null) e.appendChild(span);
+        }
+        i0++;
     }
 }
 
