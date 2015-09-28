@@ -131,11 +131,10 @@ span.time {
 	background-image: -webkit-linear-gradient(0, transparent 50%, rgba(255, 255, 255, 1) 50%);
 }
 #slider {
-    margin-top: 300px;
-    height: 550px;
+    margin-top: 250px;
+    height: 500px;
     position: relative;
 }
-
 #slider-content {
     display: flex;
     flex-direction: row;
@@ -152,13 +151,11 @@ span.time {
     -o-transition-duration: 750ms;
     -ms-transition-duration: 750ms;
 }
-
 .slide {
     width: 100%;
     color: white;
     padding: 20px 100px;
 }
-
 .controls {
     position: absolute;
     background-color: rgba(238, 238, 238, 0.03);
@@ -173,21 +170,17 @@ span.time {
     vertical-align: middle;
 }
 .controls > i{
-     font-size: 52px;
+    font-size: 52px;
 }
 #right-arrow {
     right: 0;
 }
-
 #left-arrow {
     left: 0;
 }
-
-
 .get-right {
     float: right;
 }
-
 .get-left {
     float: left;
 }

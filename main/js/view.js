@@ -43,7 +43,6 @@ function renderTimeline(pep_width) {
             span.innerHTML = hour + ":" + min;
             clas = clas + " l";
 
-
             e.id = id;
             e.className = "col " + clas;
             e.style.width = minutes_img_width;
@@ -87,9 +86,25 @@ function renderSlides(data) {
 
 function renderSchedule(data) {
     //var container = $('.slider-content');
-    var container = document.getElementById('slider-content');
-    var theTemplateScript = $("#slide-template").html();
+    debugger;
+    var container = document.getElementById('main-schedule');
+    var theTemplateScript = $("#schedule-template").html();
     //Compile the template​
     var theTemplate = Handlebars.compile(theTemplateScript);
-    container.insertAdjacentHTML('beforeEnd', theTemplate(data));
+    container.innerHTML = theTemplate(data);
 }
+
+Handlebars.registerHelper('list_schedule', function(items, options) {
+  var days = Object.keys(items);
+  var out = "<ul>";
+
+  days.forEach(function(item, i){
+
+  });
+
+  for(var i=0, l=items.length; i<l; i++) {
+    out = out + "<div>"+items+"</div>";
+  }
+
+  return out + "</ul>";
+});

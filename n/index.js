@@ -9,12 +9,14 @@ app.get('/', function(req, res) {
 io.on('connection', function(socket) {
       var ID = (socket.id).toString().substr(0, 5);
       var time = (new Date).toLocaleTimeString();
+
       socket.json.send({'event': 'connected', 'name': ID, 'time': time});
       socket.broadcast.json.send({'event': 'userJoined', 'name': ID, 'time': time});
 
       socket.on('disconnect', function() {
           io.emit('user disconnect', '** user disconnected ***');
       });
+
       socket.on('status',function(msg){
            io.emit('status', msg);
            //socket.broadcast.emit('user typing...');

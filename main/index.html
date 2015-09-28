@@ -51,15 +51,11 @@
               </div>
             {{/each}}
     </script> 
-     <script id="schedule-template" type="x-handlebars-template">​
-     <div id="main-scedule">
-           {{#each this}}
+     <script id="schedule-template" type="x-handlebars-template">​ {{#list_schedule this}}
                 <ul class="card-description">
-                    <li>{{ time }}</li>
-                    <li>{{ title }}</li>
+
                 </ul>
-            {{/each}}
-     </div>
+            {{/list_schedule}}
     </script> 
   </body>
 </html>
