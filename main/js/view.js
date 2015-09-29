@@ -76,38 +76,33 @@ function renderCards(data) {
 }
 
 function renderSlides(data) {
-    //var container = $('.slider-content');
     var container = document.getElementById('slider-content');
-    var theTemplateScript = $("#slide-template").html();
+    var templateScript = $("#slide-template").html();
     //Compile the template​
-    var theTemplate = Handlebars.compile(theTemplateScript);
-    container.insertAdjacentHTML('beforeEnd', theTemplate(data));
+    var template = Handlebars.compile(templateScript);
+    container.insertAdjacentHTML('beforeEnd', template(data));
 }
 
 function renderSchedule(data) {
-    //var container = $('.slider-content');
-    debugger;
     var container = document.getElementById('main-schedule');
-    var theTemplateScript = $("#schedule-template").html();
+    var templateScript = $("#schedule-template").html();
     //Compile the template​
-    var theTemplate = Handlebars.compile(theTemplateScript);
-    container.innerHTML = theTemplate(data);
+    var template = Handlebars.compile(templateScript);
+    container.innerHTML = template(data);
 }
 
 Handlebars.registerHelper('list_schedule', function(items, options) {
   var days = Object.keys(items);
-  var out = "<ul>";
+  var out = "";
 
   days.forEach(function(day, i){
         Object.keys(items[day]);
-        items[day].forEach(function(time, i){
-            items[day][time];
-        })
+        out += "<div class='day'>";
+        items[day].forEach(function(sched, i) {
+            out +=  '<ul ><li>'+sched[0]+'</li><li>'+sched[1]+'</li></ul>'
+        });
+        out += "</div>"
   });
 
-  for(var i=0, l=items.length; i<l; i++) {
-    out = out + "<div>"+items+"</div>";
-  }
-
-  return out + "</ul>";
+  return out;
 });
