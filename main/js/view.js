@@ -92,17 +92,17 @@ function renderSchedule(data) {
 }
 
 Handlebars.registerHelper('list_schedule', function(items, options) {
-  var days = Object.keys(items);
-  var out = "";
+    var days = Object.keys(items);
+    var out = "";
 
-  days.forEach(function(day, i){
-        Object.keys(items[day]);
-        out += "<div class='day'>";
-        items[day].forEach(function(sched, i) {
-            out +=  '<ul ><li>'+sched[0]+'</li><li>'+sched[1]+'</li></ul>'
-        });
-        out += "</div>"
-  });
+    days.forEach(function(day, i){
+            Object.keys(items[day]);
+            out += "<div class='day'>";
+            items[day].forEach(function(sched, i) {
+                out +=  '<ul ><li>'+sched[0]+'</li><li>'+sched[1]+'</li></ul>'
+            });
+            out += "</div>"
+    });
 
-  return out;
+    return out;
 });

@@ -31,7 +31,6 @@
                   </div>
             </div>
     </div>
-
     <script src="./js/lib/jquery.pep.js"></script>
     <script src="./js/lib/handlebars.min.js"></script>
     <script src="./js/util.js"></script>
@@ -40,7 +39,7 @@
     <script id="slide-template" type="x-handlebars-template">​{{#each this}}
               <div class="slide" id="{{id}}">
                 <a href="#" class="card-photo"><img src="./{{image}}" height="130" alt="{{name}}"/></a>
-                <h2><a href="#"> {{name}} </a></h2>
+                <h2><a href="#">{{name}}</a></h2>
                 <ul class="card-description">
                     <li><span>Director: </span>{{info.director}}</li>
                     <li><span>Genre: </span>{{info.genre}}</li>
@@ -50,10 +49,8 @@
               </div>
             {{/each}}
     </script> 
-     <script id="schedule-template" type="x-handlebars-template">​ {{#list_schedule this}}
-                <ul class="card-description">
-                </ul>
-            {{/list_schedule}}
+     <script id="schedule-template" type="x-handlebars-template">​
+            {{#list_schedule this}}{{/list_schedule}}
     </script> 
   </body>
 </html>

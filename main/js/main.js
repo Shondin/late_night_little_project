@@ -8,18 +8,20 @@ $(function () {
 
     // отрисовка таймлайна
     renderTimeline(pep_width);
+
     // загружаем список фильмов и отображаем их на таймлайне и в слайдере
     var data_len;
-    $.getJSON("cards.json", function (data) {
+    $.getJSON("./json/cards.json", function (data) {
         data_len = data.length + 1;
         $slider.style.width = data_len * window.innerWidth;
         renderCards(data);
         renderSlides(data);
     });
 
-    $.getJSON("main-schedule.json", function (data) {
+    $.getJSON("./json/main-schedule.json", function (data) {
         renderSchedule(data);
     });
+
 
     // Обработчики кнопок "влево", "вправо" у слайдера
     var left_btn  = document.getElementById('left-arrow');
@@ -71,6 +73,7 @@ $(function () {
     };
 
     var line_margin = getLeft($line);
+
     // "джижок" таймлайна
     $($pep).pep({
         axis: 'x',
@@ -80,14 +83,10 @@ $(function () {
         constrainTo: [0, 0, 0, -(pep_width - screen.availWidth)],
         initiate: function (ev, obj) {},
         start: function (ev, obj) {},
-        drag: function (ev, obj) {},
+        drag: function (ev, obj) { console.log('dx'+this.dx+' left '+obj.$el.position().left) },
         stop: function (ev, obj) {},
         rest: function (ev, obj) {}
     });
-
-    var check_left_position = function (left) {
-        if (left > window.innerWidth * 3) {}
-    }
 
     var pep = $.pep.peps[0];
 
@@ -107,6 +106,7 @@ $(function () {
 
     window.onresize = function (event) {
         $slider.style.width = data_len * window.innerWidth;
-    };
+    }
+
 });
 
