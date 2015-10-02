@@ -96,10 +96,9 @@ Handlebars.registerHelper('list_schedule', function(items, options) {
     var out = "";
 
     days.forEach(function(day, i){
-            Object.keys(items[day]);
-            out += "<div class='day'>";
+            out += "<div class='day'><div class='name'>"+day+'</div>';
             items[day].forEach(function(sched, i) {
-                out +=  '<ul ><li>'+sched[0]+'</li><li>'+sched[1]+'</li></ul>'
+                out +=  '<p ><span>'+sched[0]+'</span><span>'+sched[1]+'</span></p>'
             });
             out += "</div>"
     });

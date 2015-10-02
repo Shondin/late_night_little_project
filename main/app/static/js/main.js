@@ -11,14 +11,16 @@ $(function () {
 
     // загружаем список фильмов и отображаем их на таймлайне и в слайдере
     var data_len;
-    $.getJSON("./json/cards.json", function (data) {
+    $.getJSON("/cards", function (data) {
+        data = data['data'];
         data_len = data.length + 1;
         $slider.style.width = data_len * window.innerWidth;
         renderCards(data);
         renderSlides(data);
     });
 
-    $.getJSON("./json/main-schedule.json", function (data) {
+    $.getJSON("main_schedule", function (data) {
+        data = data['data'];
         renderSchedule(data);
     });
 
@@ -29,8 +31,8 @@ $(function () {
     right_btn.addEventListener('click', function () {
         var active = document.getElementsByClassName('active')[0];
         try {
-            var right = getLeft($slider) - window.innerWidth;
             var next = active.nextElementSibling;
+            var right = getLeft($slider) - getLeft(next) ;
         } catch (e) {
             return false;
         }
@@ -46,7 +48,7 @@ $(function () {
         var active = document.getElementsByClassName('active')[0];
         try {
             var prev = active.previousElementSibling;
-            var left = getLeft($slider) + window.innerWidth;
+            var left = getLeft($slider) - getLeft(prev);
         } catch (e) {
             return false;
         }
