@@ -1,0 +1,11 @@
+Метод HTTP	URI	                                            Действие
+GET	        http://[hostname]/timeline/cards/               Получить список
+GET	        http://[hostname]/timeline/cards/[id]	        Получить
+GET	        http://[hostname]/timeline/schedule/main	    Получить главное расписание
+GET	        http://[hostname]/timeline/schedule/main/[date] Получить главное расписание
+GET	        http://[hostname]/timeline/schedule/[id]	    Получить расписание фильма
+
+
+POST	    http://[hostname]/                              Создать новую задачу
+PUT	        http://[hostname]/	                            Обновить существующую задачу
+DELETE	    http://[hostname]/	                            Удалить задачу
