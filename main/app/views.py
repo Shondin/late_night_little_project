@@ -1,9 +1,14 @@
-
-from flask import render_template, json, jsonify
-from flask_admin import admin
-import flask_login as login
-from werkzeug.security import generate_password_hash, check_password_hash
 import os
+from app import app, db
+from flask import Flask, url_for, redirect, render_template, request, json, jsonify
+from flask_sqlalchemy import SQLAlchemy
+import flask_admin as admin
+import flask_login as login
+from flask_admin.contrib import sqla
+from flask_admin import helpers, expose
+from forms import LoginForm, RegistrationForm
+from models import User
+from werkzeug.security import generate_password_hash
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -30,6 +35,7 @@ def get_json_from_file(json_url):
     data = {}
     data['data'] = json.load(open(json_url))
     return jsonify(data)
+
 
 # Initialize flask-login
 def init_login():
@@ -98,11 +104,3 @@ class MyAdminIndexView(admin.AdminIndexView):
     def logout_view(self):
         login.logout_user()
         return redirect(url_for('.index'))
-
-
-# Flask views
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
